@@ -1,1 +1,62 @@
+Build the Create League / Tournament feature for the football app.
 
+Goal:
+A user must be able to create a league or tournament in under 30 seconds.
+
+Required fields:
+- competition_type (league | tournament)
+- name
+- age_group
+- country
+- city
+- max_teams
+- created_by_user_id
+
+Optional fields:
+- gender (boys | girls | mixed)
+- competition_level (hobby | competitive | elite)
+- organizer_type (club | association | private | school | company)
+- organizer_id
+- start_date
+- end_date
+- min_teams
+- visibility (public | invite_only | private)
+- registration_open
+- registration_close
+
+Create database table:
+competitions
+
+API endpoint:
+POST /competitions
+
+Example payload:
+
+{
+  "competition_type": "league",
+  "name": "Helsinki Junior League U12",
+  "age_group": "U12",
+  "country": "Finland",
+  "city": "Helsinki",
+  "max_teams": 12,
+  "created_by_user_id": "user_123"
+}
+
+Architecture:
+
+Competition
+ → Teams
+ → Players
+
+Competition does not own players directly.
+Teams belong to competitions.
+Players belong to teams.
+
+After creation generate Competition Dashboard with:
+
+- Teams
+- Matches
+- Standings
+- Invitations
+- Media
+- Chat
