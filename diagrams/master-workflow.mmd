@@ -1,1 +1,70 @@
+flowchart TD
 
+A[Aloitus] --> B[Avaa sovellus]
+B --> C[Rekisteröidy tai kirjaudu]
+C --> D[Tunnistautuminen]
+
+D --> E[Valitse mitä haluat tehdä]
+
+E --> F1[Perusta sarja tai turnaus]
+E --> F2[Perusta seura]
+E --> F3[Pelaaja]
+E --> F4[Vanhempi]
+E --> F5[Fani]
+
+%% Sarja / Turnaus
+
+F1 --> G1[Sarja vai turnaus]
+G1 --> G2[Kilpailu vai harraste]
+G2 --> G3[Kilpailun nimi]
+G3 --> G4[Sijainti]
+
+G4 --> H[Kilpailun luonnos luodaan]
+
+H --> H1[Perustajasta tulee ensimmäinen hallinnoija]
+H --> H2[Kilpailu on oletuksena yksityinen]
+
+H --> I[Kilpailun dashboard]
+
+%% Sarja vs Turnaus
+
+I --> J{Kilpailutyyppi}
+
+J --> J1[Sarja]
+J --> J2[Turnaus]
+
+J1 --> J1A[Voidaan luoda hallintaryhmä]
+J2 --> J2A[Kevyempi järjestäjämalli]
+
+%% Seura
+
+F2 --> K1[Luodaan seuran luonnos]
+K1 --> K2[Perustajasta tulee hallinnoija]
+K2 --> L[Seuran dashboard]
+
+%% Pelaaja
+
+F3 --> M1[Luodaan pelaajaprofiili]
+M1 --> M2[Pelaajan dashboard]
+
+%% Vanhempi
+
+F4 --> N1[Luodaan vanhemman profiili]
+N1 --> N2[Vanhemman dashboard]
+
+%% Fani
+
+F5 --> O1[Luodaan faniprofiili]
+O1 --> O2[Fanin dashboard]
+
+%% Yhteinen dashboard
+
+I --> P[Oma dashboard]
+L --> P
+M2 --> P
+N2 --> P
+O2 --> P
+
+P --> P1[Lisää henkilöitä]
+P --> P2[Määrittele roolit]
+P --> P3[Täydennä tiedot]
